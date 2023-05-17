@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Editor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+    <div class="options">
+        <h4>Elements</h4>
+        <div class="option-container"></div>
+    </div>
+    <div class="canvas-container">
+        <div class="canvas"></div>
+    </div>
+    <div class="props">
+
+    </div>
+</div>
+<div class="tempDrag"></div>
+<div class="tempDragMove"></div>
+<script type="module">
+    import {App} from "./app/App.js";
+    let app = new App({
+        ui : document.querySelector('.app'),
+        canvas : document.querySelector('.canvas'),
+        properties : document.querySelector('.props'),
+        options : document.querySelector('.option-container'),
+        tempDrag : document.querySelector('.tempDrag'),
+        tempDragMove : document.querySelector('.tempDragMove')
+    });
+    app.render();
+</script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+:root {
+    --lightgrey: #efefef;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Arial;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.app {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+    position: relative;
+}
+
+.tempDragMove,
+.tempDrag {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+.tempDragMove.show,
+.tempDrag.show {
+    display: block;
+}
+
+.tempDragMove.show {
+    opacity: 0.8;
+    background: white;
+}
+
+.options {
+    width: 200px;
+    background-color: var(--lightgrey);
+    overflow: auto;
+    padding: 10px;
+}
+
+.options h4 {
+    margin-top: 0;
+}
+
+.tempDrag .option,
+.options .option{
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid white;
+    background-color: white;
+    border-radius: 10px;
+    cursor: move;
+    user-select: none;
+}
+
+.tempDrag .option {
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.canvas-container {
+    width: calc(100% - 500px);
+    display: flex;
+    overflow: auto;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+}
+
+.canvas-container .canvas {
+    max-width: 1024px;
+    width: 100%;
+    border: 1px solid var(--lightgrey);
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.tempDragMove .canvas-object,
+.canvas-container .canvas .canvas-object {
+    border: 2px dotted transparent;
+    padding: 10px 0;
+    display: flex;
+    width: 100%;
+}
+
+.canvas-container .canvas .canvas-object img,
+.canvas-container .canvas .canvas-object label {
+    user-select: none;
+}
+
+.tempDragMove .canvas-object .co-options,
+.canvas-container .canvas .canvas-object .co-options {
+    width: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+.canvas-container .canvas .canvas-object.placeholder .co-content,
+.canvas-container .canvas .canvas-object.placeholder .co-options {
+    display: none;
+}
+
+.tempDragMove .canvas-object .co-content,
+.canvas-container .canvas .canvas-object .co-content {
+    flex-grow: 1;
+}
+
+.tempDragMove .canvas-object .co-options img,
+.canvas-container .canvas .canvas-object .co-options img {
+    width: 24px;
+    -webkit-user-drag: none;
+}
+
+.canvas-container .canvas .canvas-object .co-options img.drag {
+    cursor: move;
+}
+
+.canvas-container .canvas .canvas-object .co-options img.delete {
+    cursor: pointer;
+}
+
+.canvas-container .canvas .canvas-object.placeholder {
+    border: 2px solid var(--lightgrey);
+    height: 30px;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.canvas-container .canvas .canvas-object.select {
+    display: flex;
+    border: 2px dotted brown;
+}
+
+.canvas-container .canvas .canvas-row {
+    display: flex;
+    gap: 20px;
+}
+
+.props {
+    width: 300px;
+    background-color: var(--lightgrey);
+    overflow: auto;
+    padding: 15px;
+}
+
+/* props */
+
+.props .property {
+    padding: 10px 0;
+}
+
+.props .property label {
+    display: block;
+}
+
+/* form options */
+
+.tempDragMove .canvas-object label,
+.canvas-container .canvas .canvas-object label {
+    display: block;
+    padding: 10px 0;
+}
+
+.tempDragMove,
+.tempDragMove * {
+    user-select: none;
+    -webkit-user-drag: none;
+}
